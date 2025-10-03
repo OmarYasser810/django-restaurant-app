@@ -1,3 +1,30 @@
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+ul li {
+    display: inline;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+ul li a:hover {
+    background: #333;
+    color: #fff;
+}
+
 .menu-container {
     max-width: 1300px;
     margin: 40px auto;
@@ -117,4 +144,13 @@ body.night-mode .menu-item .category {
 
 body.night-mode .menu-item .description {
     color: #b0b0b0;
+}
+
+body.night-mode ul li a {
+    color: #e0e0e0;
+}
+
+body.night-mode ul li a:hover {
+    background: #444;
+    color: #fff;
 }
