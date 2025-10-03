@@ -109,6 +109,22 @@ ul li a:hover {
     text-decoration: underline;
 }
 
+a.add-itme-button {
+    display: inline-block;
+    margin-top: 12px;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+a.add-itme-button:hover {
+    background: #0056b3;
+}
+
 @media (max-width: 600px) {
     .menu-container {
         padding: 12px 2px;

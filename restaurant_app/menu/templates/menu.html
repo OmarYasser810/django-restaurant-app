@@ -4,7 +4,7 @@
 {% block title %}Menu{% endblock title %}
 
 {% block content %}
-<link rel="stylesheet" href="{% static 'CSS/menu.css' %}">
+<link rel="stylesheet" href="{% static 'CSS/menu/menu.css' %}">
 <div class="menu-container">
     <h2 >Menu</h2>
     <div class="menu-items">
@@ -24,10 +24,7 @@
         <p>No menu items available.</p>
         {% endfor %}
     </div>
-</div>
-<div>
-    <ul>
-        <li><a href="{% url 'insert_menu_item' %}">Insert item</a></li>
-    </ul>
+    <br>
+    <a href="{% url 'insert_menu_item' %}" class="add-itme-button">Add New Item</a>
 </div>
 {% endblock content %}

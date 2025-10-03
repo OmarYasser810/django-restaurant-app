@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}Edit customer{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/customer/insert_customer.css' %}">
+<div class="customer-container">
+    <h2>Edit Customer Information</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+            <ul class="errorlist">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ form.name.value }}" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ form.email.value }}"><br><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" name="phone" value="{{ form.phone.value }}" required><br><br>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+{% endblock content %}
