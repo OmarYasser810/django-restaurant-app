@@ -51,6 +51,21 @@ nav ul li a:hover {
     color: #fff;
 }
 
+nav ul i.fa-circle-half-stroke {
+    transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+    padding: 4px 2px;
+    border-radius: 4px;
+    font-size: 1.2em;
+    position: relative;
+    top: -4px;
+}
+
+nav ul i.fa-circle-half-stroke:hover {
+    background: #333;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
 footer {
     background: #f4f4f4;
     text-align: center;
@@ -61,4 +76,33 @@ footer {
     border-top: 1px solid #e0e0e0;
     font-size: 0.95rem;
     color: #666;
+}
+
+body.night-mode {
+    background: #181a1b;
+    color: #e0e0e0;
+}
+
+body.night-mode header {
+    background: #232526;
+    border-bottom: 1px solid #333;
+}
+
+body.night-mode header h1 a {
+    color: #fff;
+}
+
+body.night-mode nav ul li a {
+    color: #e0e0e0;
+}
+
+body.night-mode nav ul li a:hover {
+    background: #444;
+    color: #fff;
+}
+
+body.night-mode footer {
+    background: #232526;
+    color: #bbb;
+    border-top: 1px solid #333;
 }
