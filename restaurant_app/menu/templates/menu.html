@@ -1,5 +1,27 @@
 {% extends "index.html" %}
+{% load static %}
 
 {% block title %}Menu{% endblock title %}
 
-{% block content %}This is menu page{% endblock content %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/menu.css' %}">
+<div class="menu-container">
+    <h2 >Menu</h2>
+    <div class="menu-items">
+        {% for item in menu_items %}
+        <div class="menu-item">
+            <img src="{{ item.photo.url }}" alt="{{ item.name }}">
+            <h3>{{ item.name }}</h3>
+            <p class="category">{{ item.category }}</p>
+            <p class="description">{{ item.description }}</p>
+            <p class="price">${{ item.price }}</p>
+            <div class="menu-actions">
+                <a href="{% url 'edit_menu_item' item.item_id %}">Edit</a> |
+                <a href="{% url 'delete_menu_item' item.item_id %}">Delete</a>
+            </div>
+        </div>
+        {% empty %}
+        <p>No menu items available.</p>
+        {% endfor %}
+    </div>
+{% endblock content %}
