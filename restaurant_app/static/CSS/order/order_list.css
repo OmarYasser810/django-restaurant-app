@@ -1,0 +1,128 @@
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+}
+
+th, td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    background: #f4f4f4;
+    color: #222;
+    font-weight: 600;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+ul {
+    margin: 0;
+    padding-left: 18px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 12px 2px;
+    }
+    table, th, td {
+        font-size: 0.97rem;
+    }
+}
+
+a.add-order-button {
+    display: inline-block;
+    margin-top: 12px;
+    background: #007bff;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+a.add-order-button:hover {
+    background: #0056b3;
+}
+
+td a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 4px;
+    transition: color 0.2s;
+}
+
+td a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Night mode overrides */
+body.night-mode .container {
+    background: #232526;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+}
+
+body.night-mode .container h2 {
+    color: #e0e0e0;
+}
+
+body.night-mode table {
+    background: transparent;
+    color: #e0e0e0;
+}
+
+body.night-mode th {
+    background: #232526;
+    color: #e0e0e0;
+}
+
+body.night-mode td {
+    border-bottom: 1px solid #444;
+}
+
+body.night-mode tr:last-child td {
+    border-bottom: none;
+}
+
+body.night-mode ul {
+    color: #e0e0e0;
+}
+
+body.night-mode a.add-order-button {
+    background: #339cff;
+    color: #fff;
+}
+
+body.night-mode a.add-order-button:hover {
+    background: #1976d2;
+}
+
+body.night-mode td a {
+    color: #66aaff;
+}
+
+body.night-mode td a:hover {
+    color: #339cff;
+}

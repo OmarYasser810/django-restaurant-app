@@ -1,0 +1,79 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}Create Order{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/order/create_order.css' %}">
+<div class="container">
+    <h2>Create New Order</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% if form.errors %}
+            <ul class="errorlist">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li>{{ field.label }}: {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <label for="customer_name">Customer Name:</label>
+        <input type="text" id="customer_name" name="customer_name" required><br><br>
+        
+        <label for="phone_number">Phone number:</label>
+        <input type="text" id="phone_number" name="phone_number" required><br><br>
+
+        <h3>Order Items</h3>
+        <div id="order-items">
+            <div class="order-item">
+                <label for="menu_item">Menu Item:</label>
+                <select id="menu_item" name="items" required>
+                    <option value="">Select an item</option>
+                    {% for item in menu_items %}
+                        <option value="{{ item.item_id }}">{{ item.name }} - ${{ item.price }}</option>
+                    {% endfor %}
+                </select>
+                <br><br>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantities" min="1" value="1" required>
+                
+                <button type="button" class="remove-item" onclick="removeItem(this)">Remove</button>
+            </div>
+        </div>
+        <button type="button" id="add-item">Add Another Item</button><br><br>
+        <button type="submit">Create Order</button>
+    </form>
+</div>
+<script>
+    let itemCount = 1;
+
+    document.getElementById('add-item').addEventListener('click', function() {
+        itemCount++;
+        const orderItemsDiv = document.getElementById('order-items');
+        const newItemDiv = document.createElement('div');
+        newItemDiv.classList.add('order-item');
+        newItemDiv.innerHTML = `
+            <label>Menu Item:</label>
+            <select name="items" required>
+                <option value="">Select an item</option>
+                {% for item in menu_items %}
+                    <option value="{{ item.id }}">{{ item.name }} - ${{ item.price }}</option>
+                {% endfor %}
+            </select>
+            <label>Quantity:</label>
+            <input type="number" name="quantities" min="1" value="1" required>
+            <button type="button" class="remove-item" onclick="removeItem(this)">Remove</button>
+        `;
+        orderItemsDiv.appendChild(newItemDiv);
+    });
+
+    function removeItem(button) {
+        const itemDiv = button.parentElement;
+        itemDiv.remove();
+    }
+</script>
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}Orders{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'CSS/order/order_list.css' %}">
+<div class="container">
+    <h2>Order List</h2>
+    {% if orders %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Customer Name</th>
+                    <th>Phone Number</th>
+                    <th>Created At</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.customer_name }}</td>
+                    <td>{{ order.phone }}</td>
+                    <td>{{ order.created_at }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No orders found.</p>
+    {% endif %}
+    <div class="button-group">
+        <a href="{% url 'create_order' %}" class="add-order-button">Create New Order</a>
+    </div>
+</div>
+{% endblock content %}
